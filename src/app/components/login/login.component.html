@@ -1,0 +1,49 @@
+
+<app-banner [title]="'Log In'"></app-banner>
+
+<div class="container-fluid py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <div class="card border-0">
+            <div class="card-header bg-secondary text-center p-4">
+              <h1 class="text-white m-0">Login</h1>
+            </div>
+            <div class="card-body rounded-bottom bg-primary p-5">
+                <form [formGroup]="loginForm">
+                  <div class="row">
+                    <div class="col-lg-6">
+                       <div class="form-group">
+                        <input type="tel" formControlName="tel" class="form-control border-0 p-4" placeholder="Tel">
+                        <div class="text-danger"  *ngIf="loginForm.controls['tel'].invalid &&
+                         (loginForm.controls['tel'].dirty ||loginForm.controls['tel'].touched)"> 
+          
+                           <div *ngIf="loginForm.controls['tel'].errors?.minlength">Min length</div>
+                           <div *ngIf="loginForm.controls['tel'].errors?.required">Required</div>
+                        </div>
+                       </div>
+                    </div>
+                   <div class="col-lg-6">
+                    <div class="form-group">
+                      <input type="text" formControlName="password" class="form-control border-0 p-4"  placeholder="Password">
+                      <div class="text-danger"  *ngIf="loginForm.controls['password'].invalid &&
+                      (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"> 
+                        <div *ngIf="loginForm.controls['password'].errors?.mustMatch">Must Match</div>
+                        <div *ngIf="loginForm.controls['password'].errors?.minlength">Min len</div>
+                        <div *ngIf="loginForm.controls['password'].errors?.required">Required</div>
+                    </div>
+                    </div>
+                   </div>
+                   <div class="form-group">
+                    <input type="button" [disabled]="loginForm.invalid" (click)="login()"  class="btn btn-warning py-3 px-5"  value="Log In">
+                  </div>
+                 </div>
+                 </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

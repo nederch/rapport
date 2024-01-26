@@ -1,0 +1,67 @@
+<!-- Navbar Start -->
+<div class="container-fluid bg-light position-relative shadow">
+    <nav
+      class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5"
+    >
+      <a
+        href=""
+        class="navbar-brand font-weight-bold text-secondary"
+        style="font-size: 50px"
+      >
+        <i class="flaticon-043-teddy-bear"></i>
+        <span class="text-primary">KidKinder</span>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="navbarCollapse"
+      >
+        <div class="navbar-nav font-weight-bold mx-auto py-0">
+          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <li *ngIf="isLoggedIn()"><a routerLink="/cours" class="nav-link">Cours</a></li>
+         
+          <li *ngIf="isLoggedIn() && connectedUser?.role=='parent'"><a routerLink="/search-student" class="nav-link"> Résultat ton fils</a></li>
+
+          <li *ngIf="isLoggedIn()"><a routerLink="/teachers" class="nav-link">Teachers</a></li>
+          <li *ngIf="isLoggedIn() && connectedUser?.role=='admin'"><a routerLink="/table-users" class="nav-link">Members</a></li>
+          <li *ngIf="isLoggedIn() && connectedUser?.role=='admin'" ><a routerLink="/list-notes" class="nav-link">List Notes</a></li>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" *ngIf="isLoggedIn() && connectedUser?.role=='teacher'">Page cour</a >
+            <div class="dropdown-menu rounded-0 m-0">
+              <li ><a routerLink="/add-cour" class="nav-link">ADD COUR</a></li>
+              <li ><a routerLink="/table-cours" class="nav-link">Table Cours</a></li>
+            </div>
+          </div>
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown" *ngIf="isLoggedIn() && connectedUser?.role=='teacher'">Page notes</a >
+            <div class="dropdown-menu rounded-0 m-0">
+              <li ><a routerLink="/add-note" class="nav-link">ADD NOTE</a></li>
+              <li ><a routerLink="/list-notes" class="nav-link">List Notes</a></li>
+            </div>
+          </div>
+          <li *ngIf="!isLoggedIn()"><a routerLink="/signup" class="nav-link">Sign Up</a></li>
+           <li *ngIf="!isLoggedIn()"><a routerLink="/login" class="nav-link">Log In</a></li>
+          <div *ngIf="isLoggedIn()" class="nav-item dropdown">
+            <a href="#"class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user text-primary"></i></a>
+            <div class="dropdown-menu rounded-0 m-0">
+              <li ><a (click)="logout()" class="nav-link">Se Déconnecter</a></li>
+            </div>
+            <h6>{{connectedUser.firstName}} {{connectedUser.lastName}}</h6>
+            <h5>{{connectedUser.role}}</h5>
+            
+          </div>
+        
+        </div>
+          <a *ngIf="isLoggedIn() && connectedUser?.role=='admin'" routerLink="/filter-cours" class="btn btn-primary px-4">Filter Cours</a>
+        
+      </div>
+    </nav>
+  </div>
+  <!-- Navbar End -->

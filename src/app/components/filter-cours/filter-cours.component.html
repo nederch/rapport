@@ -1,0 +1,86 @@
+
+<app-banner [title]="'Filter Cour'"></app-banner>
+
+<section class="container">
+  <div class="col-lg-12 mb-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <form #filterForm="ngForm" (ngSubmit)="filterCours()">
+          <div class="row">
+            <div class="col-4">
+              <div class="form-group">
+                <input type="date" class="form-control" [(ngModel)]="filter.gte" name="gte" placeholder="Date Fin">
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="form-group">
+                <input type="date" class="form-control" [(ngModel)]="filter.lte" name="lte" placeholder="Date Début">
+              </div>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-warning">RECHERCHER</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+   
+  
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center pb-2">
+        <p class="section-title px-5">
+          <span class="px-2">Popular Cours</span>
+        </p>
+        <h1 class="mb-4">COURS for Your Kids</h1>
+      </div>
+      <div class="row">
+
+        <div class="col-lg-6" *ngFor="let cour of cours">
+          <div class="col-lg-12  mb-5" >
+            <div class="card border-0 bg-light shadow-sm pb-2">
+              <img class="card-img-top mb-2" src="assets/img/class-1.jpg" alt="" />
+              <div class="card-body text-center">
+                <h4 class="card-title">{{cour.name}}</h4>
+                <p class="card-text">
+                 {{cour.description}}
+                </p>
+              </div>
+              <div class="card-footer bg-transparent py-4 px-5">
+                <div class="row border-bottom">
+                  <div class="col-6 py-1 text-right border-right">
+                    <strong>Date debut</strong>
+                  </div>
+                  <div class="col-6 py-1">{{cour.dateD}}</div>
+                </div>
+                <div class="row border-bottom">
+                  <div class="col-6 py-1 text-right border-right">
+                    <strong>Date fin</strong>
+                  </div>
+                  <div class="col-6 py-1">{{cour.dateF}}</div>
+                </div>
+                <div class="row border-bottom">
+                  <div class="col-6 py-1 text-right border-right">
+                    <strong>Durée</strong>
+                  </div>
+                  <div class="col-6 py-1">{{cour.duree}} days</div>
+                 
+                  
+                </div>
+               
+              </div>
+             
+          </div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+

@@ -1,0 +1,43 @@
+
+<app-banner [title]="'LISTE DE NOTES'"></app-banner>
+
+<div class="container mt-3">
+    <h2>Liste De Notes</h2>
+           
+    <table class="table ">
+      <thead>
+        <tr>
+          <th>Cour Name</th>
+          <th>Student Name</th>
+          <th>Note</th>
+          <th>Evaluation</th>
+          <th>Delete</th>
+          <th *ngIf="connectedUser.role === 'teacher'">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let n of notes" appColor>
+          <td>{{n.coursId.name}}</td>
+          <td>{{n.studentId.firstName}} {{n.studentId.lastName}}</td>
+          <td>{{n.valeur}}</td>
+          <td>{{n.evaluation}}</td>
+
+          
+           <td>
+            <button class="btn btn-danger" (click)=" Delete(n)">
+                <i class="fa-solid fa-trash-can" ></i>
+            </button>
+          </td>
+          <td *ngIf="connectedUser.role === 'teacher'">
+            <button class="btn btn-success" [routerLink]="['/add-note/', n._id]">
+              <i class="fas fa-pen"></i>
+            </button>
+          </td>
+          
+         
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

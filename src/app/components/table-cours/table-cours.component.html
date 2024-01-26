@@ -1,0 +1,49 @@
+
+<app-banner [title]="'TABLE COURS'"></app-banner>
+
+<div class="container mt-3">
+    <h2>Table Cours</h2>
+           
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Cour Name</th>
+          <th>Description</th>
+          <th>Date Début</th>
+          <th>Date Fin</th>
+          <th>Durée</th>
+          <th>Teacher</th>
+          <th>Delete</th>
+          <th>Edit</th>
+          <th>Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of cours" appColor>
+          <td>{{c.name}}</td>
+          <td>{{c.description}}</td>
+          <td>{{c.dateD}}</td>
+          <td>{{c.dateF}}</td>
+          <td>{{c.duree}} days</td>
+          <td>{{c.teacherId.firstName}} {{c.teacherId.lastName}}</td>
+          
+          <td>
+            <button class="btn btn-danger" (click)=" Delete(c)">
+                <i class="fa-solid fa-trash-can" ></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-success"  [routerLink]="['/add-cour/',c._id]">
+                <i class="fas fa-pen"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-info"  [routerLink]="['/cour-detail/',c._id]">
+                <i class="fas fa-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

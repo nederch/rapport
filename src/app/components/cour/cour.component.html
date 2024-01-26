@@ -1,0 +1,57 @@
+
+<div class="col-lg-12  mb-5" >
+    <div class="card border-0 bg-light shadow-sm pb-2">
+      <img class="card-img-top mb-2" src="assets/img/class-1.jpg" alt="" />
+      <div class="card-body text-center">
+        <h4 class="card-title">{{cour.name}}</h4>
+        <p class="card-text">
+         {{cour.description}}
+        </p>
+      </div>
+      <div class="card-footer bg-transparent py-4 px-5">
+        <div class="row border-bottom">
+          <div class="col-6 py-1 text-right border-right">
+            <strong>Date debut</strong>
+          </div>
+          <div class="col-6 py-1">{{cour.dateD}}</div>
+        </div>
+        <div class="row border-bottom">
+          <div class="col-6 py-1 text-right border-right">
+            <strong>Date fin</strong>
+          </div>
+          <div class="col-6 py-1">{{cour.dateF}}</div>
+        </div>
+        <div class="row border-bottom">
+          <div class="col-6 py-1 text-right border-right">
+            <strong>Durée</strong>
+          </div>
+          <div class="col-6 py-1">{{cour.duree}}</div>
+         
+          
+        </div>
+        <div class="row border-bottom">
+            <div class="col-6 py-1 text-right border-right">
+              <strong>teacher</strong>
+            </div>
+            <div class="col-6 py-1">{{cour.teacherId.firstName}} {{cour.teacherId.lastName}}</div>  
+            <img class="img-top" [src]="cour.teacherId.image" width="75px" />
+          </div>
+          <div class="row border-bottom" *ngIf="connectedUser.role==='teacher'||connectedUser.role==='admin' ">
+            <div class="col-6 py-1 text-right border-right">
+              <strong>Students</strong>
+            </div>
+            <div class="col-6 py-1">
+              <li  *ngFor="let s of cour.students">{{s.firstName}} {{s.lastName}}</li> 
+            </div>
+             
+            
+          </div>
+      </div>
+      <button *ngIf="connectedUser.role==='admin'"  [routerLink]="['/add-student/',cour._id]"  class="btn btn-primary px-4 mx-auto mb-4">Affect Elève</button>
+      
+      <button *ngIf="connectedUser.role==='student'"  [routerLink]="['/result/',cour._id]"  class="btn btn-success px-4 mx-auto mb-4">Voir résultat</button>
+      
+  
+    </div>
+    <button *ngIf="connectedUser.role==='teacher'||connectedUser.role==='admin' " (click)="passId()" type="button" class="btn btn-danger w-100" >Delete</button>
+  </div>

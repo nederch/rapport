@@ -1,0 +1,165 @@
+
+<app-banner [title]="cour.name" ></app-banner>
+
+<!-- Class Start -->
+<div class="container py-5">
+    <div class="row pt-5">
+      <div class="col-lg-8" >
+        <div class="d-flex flex-column text-left mb-3">
+          <p class="section-title pr-5">
+            <span class="pr-2">Blog Detail Page</span>
+          </p>
+          <h1 class="mb-3"></h1>
+          <div class="d-flex">
+            <p class="mr-3" style="font-size:25px;"><i class="fa fa-user text-primary"></i>{{connectedUser.firstName}} {{connectedUser.lastName}}</p>
+           
+          </div>
+        </div>
+
+        <div class="mb-5" >
+          <h1 class="text-center">Résultats</h1>
+          <ul class="list-group list-group-flush mt-5">
+            <div class="d-flex flex-column text-center bg-danger rounded mb-5 py-5 px-4">
+              <img
+              class="img-fluid rounded-circle mx-auto mb-3"
+                [src]="note.studentId?.image"
+             
+              />
+              <span class="badge badge-primary badge-pill" style="font-size:25px;">{{note.studentId?.firstName}} {{note.studentId?.lastName}}</span>
+            </div>
+            <h2 class="text-center"></h2>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0"  style="font-size:25px;">
+              <a href=""><i class="fa fa-folder text-primary"></i></a>
+              <span class="badge badge-primary ">{{cour.name}}</span>
+            </li>
+            
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0" style="font-size:25px;">
+              <a href=""><i class="fa fa-phone text-primary"></i></a>
+              <span class="badge badge-primary badge-pill">{{note.studentId?.tel}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0"  style="font-size:25px;">
+              <a href=""><i class="fa fa-file-pen"></i></a>
+              <span class="badge badge-primary badge-pill">{{note.valeur}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0"  style="font-size:25px;">
+              <a href=""><i class="fa fa-comments text-primary"></i></a>
+              <span class="badge badge-primary badge-pill">{{note.evaluation}}</span>
+            </li>
+          </ul>
+        </div>
+
+       
+      </div>
+
+      <div class="col-lg-4 mt-5 mt-lg-0">
+       
+        <!-- Search Form -->
+        <div class="mb-5">
+          <form action="">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Keyword"
+              />
+              <div class="input-group-append">
+                <span class="input-group-text bg-transparent text-primary"
+                  ><i class="fa fa-search"></i
+                ></span>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Category List -->
+        
+
+        <!-- Single Image -->
+        <div class="mb-5">
+          <img src="assets/img/blog-1.jpg" alt="" class="img-fluid rounded" />
+        </div>
+
+        <!-- Recent Post -->
+        <div class="mb-5">
+          <h2 class="mb-4">Recent Post</h2>
+          <div
+            class="d-flex align-items-center bg-light shadow-sm rounded overflow-hidden mb-3"
+          >
+            <img
+              class="img-fluid"
+              src="assets/img/post-1.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <div class="pl-3">
+              <h5 class="">Diam amet eos at no eos</h5>
+              <div class="d-flex">
+                <small class="mr-3"
+                  ><i class="fa fa-user text-primary"></i> Admin</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-folder text-primary"></i> Web Design</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-comments text-primary"></i> 15</small
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center bg-light shadow-sm rounded overflow-hidden mb-3"
+          >
+            <img
+              class="img-fluid"
+              src="assets/img/post-2.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <div class="pl-3">
+              <h5 class="">Diam amet eos at no eos</h5>
+              <div class="d-flex">
+                <small class="mr-3"
+                  ><i class="fa fa-user text-primary"></i> Admin</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-folder text-primary"></i> Web Design</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-comments text-primary"></i> 15</small
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="d-flex align-items-center bg-light shadow-sm rounded overflow-hidden mb-3"
+          >
+            <img
+              class="img-fluid"
+              src="assets/img/post-3.jpg"
+              style="width: 80px; height: 80px"
+            />
+            <div class="pl-3">
+              <h5 class="">Diam amet eos at no eos</h5>
+              <div class="d-flex">
+                <small class="mr-3"
+                  ><i class="fa fa-user text-primary"></i> Admin</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-folder text-primary"></i> Web Design</small
+                >
+                <small class="mr-3"
+                  ><i class="fa fa-comments text-primary"></i> 15</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+
+
+     
+      </div>
+    </div>
+  </div>
+  <!-- Class End -->
+
+

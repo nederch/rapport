@@ -1,0 +1,34 @@
+<app-banner [title]="cour.name"></app-banner>
+
+<!-- Class Start -->
+<div class="container-fluid pt-5">
+  <div class="container">
+    <div class="text-center pb-2">
+      <p class="section-title px-5">
+        <span class="px-2">Popular Cour</span>
+      </p>
+      <h1 class="mb-4">Etudiants affectés</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 mb-5" *ngFor="let s of cour.students">
+        <div class="card border-0 bg-light shadow-sm pb-2">
+          <img class="card-img-top mb-2" [src]="s.image" alt="" />
+          <div class="card-body text-center">
+            <h4 class="card-title">{{ s.firstName }} {{ s.lastName }}</h4>
+            <p class="card-text">{{ s.role }}</p>
+          </div>
+          <div class="card-footer bg-transparent py-4 px-5">
+            <div class="row border-bottom">
+              <div class="col-6 py-1 text-right border-right">
+                <strong>TEL</strong>
+              </div>
+              <div class="col-6 py-1">{{ s.tel }}</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Class End -->

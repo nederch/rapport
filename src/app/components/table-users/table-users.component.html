@@ -1,0 +1,67 @@
+<app-banner [title]="'MEMBERS'"></app-banner>
+
+
+    <div class="container-fluid bg-white  mb-5 mt-3">
+
+        <h2>MEMBERS</h2>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-group">
+              <input type="text" [(ngModel)]="term" [ngModelOptions]="{standalone: true}" class="form-control" placeholder="Recherche member">
+            </div>
+          </div>
+          
+        </div>
+            <table class="table table-hover">
+                              <thead>
+                                <tr>
+                                  <th>AVATAR</th>
+                                  <th>F.Name</th>
+                                  <th>L.Name</th>
+                                  <th>TEL</th>
+                                  <th>CV</th>
+                                  <th>ROLE</th>
+                                  <th>STATUS</th>
+                                  <th>Delete</th>
+                                  <th>Validate</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let u of users| searchMember:term" appColor>
+                                    <td>
+                                      <img [src]="u.image" width="50px" >
+                                      </td>
+                                      
+                                  <th>{{u.firstName}}</th>
+                                  <td>{{u.lastName}}</td>
+                                  <td>{{u.tel}}</td>
+                                  <td>{{u.fichier}}</td>
+                                  <td>{{u.role}}</td>
+                                  <td>{{u.status}}</td>
+                                  <td>
+                                    <button class="btn btn-danger" (click)="deleteUser(u)">
+                                        <i class="fa-solid fa-trash-can" ></i>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    <button *ngIf="u.role === 'teacher'"
+                                            [ngClass]="{
+                                              'btn': true,
+                                              'btn-success': u.status,
+                                              'btn-warning': !u.status
+                                            }"
+                                            [attr.title]="u.status ? 'Validé' : 'Valider teacher'"
+                                            (click)="validTeacher(u)">
+                                      {{ u.status ? 'Validé' : 'Valider' }}
+                                    </button>
+                                  </td>
+                                  
+                                  
+
+                                </tr>
+                              </tbody>
+                            </table>
+                          
+
+    </div>
+ 
